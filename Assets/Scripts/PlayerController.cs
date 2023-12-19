@@ -1,17 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IPlayer
 {
+    public event Action LvlComplete;
+    public event Action Dead;
+
     [SerializeField] private Animator animator;
     [SerializeField] private float moveSpeed;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float jumpForce;
+    [SerializeField] private Camera cam;
+    [SerializeField] private float dampingSpeed;
     
     public void Damage()
     {
         Destroy(gameObject);
+        Dead?.Invoke();
     }
 
     void Start()
@@ -23,6 +30,11 @@ public class PlayerController : MonoBehaviour, IPlayer
     void Update()
     {
         CharacterMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        cam.transform.position = Vector3.Lerp(new Vector3(cam.transform.position.x, cam.transform.position.y, -10), transform.position, Time.deltaTime * dampingSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
