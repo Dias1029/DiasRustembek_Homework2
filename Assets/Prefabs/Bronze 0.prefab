@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1827637237138105231}
   - component: {fileID: 7652519966193250988}
   - component: {fileID: 4339138514846454703}
-  - component: {fileID: 2581062008195702268}
   m_Layer: 0
   m_Name: Bronze 0
   m_TagString: Coin
@@ -143,15 +142,3 @@ CircleCollider2D:
   m_Offset: {x: 0.0022435114, y: 0}
   serializedVersion: 2
   m_Radius: 0.25097054
---- !u!114 &2581062008195702268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6312619616127525645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8692d4cfe57d1bd49b7da58d3b8e90ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
