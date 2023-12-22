@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : SaveController
 {
-
+    [SerializeField] private string newGameLevel;
     void Start()
     {
         
@@ -23,5 +23,20 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene(1);
 
         yield return null;
+    }
+
+    public void NewGameButton()
+    {
+        SceneManager.LoadScene(newGameLevel);
+    }
+
+    public void LoadGameButton()
+    {
+        if(PlayerPrefs.HasKey("LevelSaved"))
+        {
+            string levelToLoad = PlayerPrefs.GetString("LevelSaved");
+            SceneManager.LoadScene(levelToLoad);
+            Load();
+        }
     }
 }

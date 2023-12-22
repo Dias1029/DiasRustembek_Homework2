@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour, IPlayer
     [SerializeField] private Camera cam;
     [SerializeField] private float dampingSpeed;
 
-    private DataManager dataManager;
     
     public void Damage()
     {
@@ -32,12 +31,6 @@ public class PlayerController : MonoBehaviour, IPlayer
     void Update()
     {
         CharacterMovement();
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            dataManager.SavePlayer();
-            Debug.Log("Progress saved successfully!");
-        }
     }
 
     private void FixedUpdate()
